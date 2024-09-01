@@ -1,0 +1,190 @@
+GeomapId
+  Type: string
+  MinLength: 2
+  MaxLength: 8
+  Pattern: [A-Z][A-Z0-9]*
+
+BCGMenuName
+  Type: string
+  MinLength: 1
+  MaxLength: 20
+
+FilterMenuName
+  Type: string
+  MinLength: 1
+  MaxLength: 20
+
+LabelLine1
+  Type: string
+  MinLength: 1
+  MaxLength: 7
+  Pattern: [A-Za-z0-9/\- ]*
+
+LabelLine2
+  Type: string
+  MinLength: 1
+  MaxLength: 7
+  Pattern: [A-Za-z0-9/\- ]*
+
+MinLatitude, MaxLatitude, StartLatitude, EndLatitude
+  Type: string
+  Length: 9
+  Pattern: (([0-8][0-9])|90)([0-5][0-9]){2}[0-9]{2}[NS]
+
+MinLongitude, MaxLongitude, StartLongitude, EndLongitude
+  Type: string
+  Length: 10
+  Pattern: (((0[0-9]|1[0-7])[0-9])|180)([0-5][0-9]){2}[0-9]{2}[EW]
+
+MinXSpherical, MinYSpherical, MinZSpherical, MaxXSpherical, MaxYSpherical, MaxZSpherical, StartXSpherical, StartYSpherical, StartZSpherical, EndXSpherical, EndYSpherical, EndZSpherical
+  Type: double
+  MinInclusive: -1.0
+  MaxInclusive: 1.0
+
+MapObjectType
+  Type: string
+  Possible values: 
+    VOR
+    TACAN
+    WAYPOINT
+    NDB
+    DME
+    AIRPORT
+    EmergencyAirport
+    SatelliteAirport
+    MilitaryRoutes
+    AIRWAY
+    STAR
+    ADAR
+    ADR
+    APR
+    AAR
+    DP
+    SAA
+    ARTS
+    FAV
+    SECTOR
+    ApproachControl
+    ARTCC
+    SupplementalLine
+    SupplementalSymbol
+    AAV
+    TAV
+    TAVAOI
+
+MapGroupId
+  Type: integer
+  MinInclusive: 1
+  MaxInclusive: 9999
+
+SymbolStyle
+  Type: string
+  Possible values: 
+    VOR
+    TACAN
+    OtherWaypoints
+    NDB
+    DME
+    Airport
+    EmergencyAirport
+    SatelliteAirport
+    Obstruction1
+    Obstruction2
+    Heliport
+    Nuclear
+    Radar
+    IAF
+    RNAVOnlyWaypoint
+    RNAV
+    AirwayIntersections
+
+BCGGroup
+  Type: integer
+  MinInclusive: 1
+  MaxInclusive: 128
+
+Color
+  Type: string
+  Possible values: 
+    White
+
+FontSize
+  Type: integer
+  MinInclusive: 1
+  MaxInclusive: 4
+
+GeoSymbolFilters
+  FilterGroup
+    Type: integer
+    MinInclusive: 1
+    MaxInclusive: 128
+
+LineStyle
+  Type: string
+  Possible values:
+    Solid
+    ShortDashed
+    LongDashed
+    LongDashShortDash
+
+Thickness
+  Type: integer
+  MinInclusive: 1
+  MaxInclusive: 3
+
+TextDefaultProperties
+  BCGGroup (optional)
+  Color
+  FontSize
+  Underline
+  Type: boolean
+  Possible values: 
+    true
+    false
+
+DisplaySetting
+  Type: boolean
+  Possible values: 
+    true
+    false
+
+XPixelOffset
+  Type: integer
+  MinInclusive: -2048
+  MaxInclusive: 2048
+
+YPixelOffset
+  Type: integer
+  MinInclusive: -2048
+  MaxInclusive: 2048
+
+SymbolId, LineObjectId, TextObjectId
+  Type: string
+  MinLength: 1
+  MaxLength: 30
+
+SymbolCode
+  Type: string
+  MinLength: 1
+  MaxLength: 10
+
+SaaID
+  Type: string
+  MinLength: 1
+  MaxLength: 10
+
+Owning_Facility
+  Type: string
+  Length: 3
+  Pattern: [A-Z]{1}[A-Z0-9]{2}
+
+ModuleID
+  Type: string
+  MinLength: 1
+  MaxLength: 2
+  Pattern: [A-Za-z0-9]*
+
+Seq_num
+  Type: integer
+  MinInclusive: 1
+  MaxInclusive: 9999

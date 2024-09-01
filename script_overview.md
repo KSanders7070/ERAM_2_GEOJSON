@@ -2,7 +2,7 @@
 
 ## INPUT/OUTPUT
 
-I need a script that will take data from an .xml and make geojson files in a specific way.
+The script that will take data from an .xml and make geojson files in a specific way.
 The script will create .geojsons that are Linestrings (including multilinestrings), Symbols, and Text.
 Each geojson will contain only one of these types and appened `_Lines` `_Symbols` and `_Text` at the end of the .geojson name accordingly.
 

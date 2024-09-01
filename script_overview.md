@@ -6,17 +6,17 @@ The script that will take data from an .xml and make geojson files in a specific
 The script will create .geojsons that are Linestrings (including multilinestrings), Symbols, and Text.
 Each geojson will contain only one of these types and appened `_Lines` `_Symbols` and `_Text` at the end of the .geojson name accordingly.
 
-Via arguments, ask the user to provide the path to the geomaps.xml file and then in the second argument, the user provides the directory for the output location.
+Via arguments, the user will provide the path to the geomaps.xml file and then in the second argument the directory for the output location.
 
-A third argument will be a T/F boolean turning Custom Properties on or off. More details explained later in this document.
+A third argument will be a T/F boolean turning Custom Properties on or off (off by default). More details explained later in this document.
 
 ## OUTPUT DIRECTORY SETUP
 
-First I want the script to find each `<GeoMapRecord>`.
+First the script will find each `<GeoMapRecord>`.
 
 Inside of that GeoMapRecord, get the `<GeomapId>` value and the `<LabelLine1>` and `<LabelLine2>` values. Create folders in the output directory that follow this format: `<GeomapId>`-`<LabelLine1>`_`<LabelLine2>`
 Example: **CENTER-CTR_MAP**  
-*Note: If the `<GeomapId>` folder already exists, delete that directory and subdirectories and content, and remake it.*
+*Note: If the `<GeomapId>` folder already exists, the script will delete that directory and subdirectories and content, and remake it.*
 
 In each folder that was made, create subdirectories "Filter_01", "Filter_02", etc... up to and including "Filter_20".
 Also create a folder labeled "Multi-Filter".  
@@ -32,7 +32,7 @@ In `<GeomapId>`-`GeoMapObjectType`
 
 ## FILTERGROUP ASSIGNMENT
 
-To know what filter directory to place the .geojson, you will need to know the FilterGroup that is assigned to that data.
+To know what filter directory to place the .geojson in, the script will need to know the FilterGroup that is assigned to that data.
 
 - For Lines (GeoMapLine)
   - First look for the FilterGroup in `GeoMapObjectType`-`GeoMapLine`-`GeoLineFilters` but if it is not there, get it from `GeoMapObjectType`-`DefaultLineProperties`-`GeoLineFilters`.
@@ -75,17 +75,38 @@ Examples:
 
 ## CUSTOM PROPERTIES
 
+For testing and organizational needs, the script will offer the user the option to turn on "Custom_Properties" for features. This feature is turned off (F) by default.
+
+In order to avoid future confliction with other .geojson readers, the keys will be prefixed with the developer of this scripts GitHub name "ksanders7070".
+
+FOR LINES:
+
+- If the user elects to have Custom Properties turned on, the script will insert a custom key/values into the properties section of the feature detailing the MapObjectType, MapGroupId, and LineObjectId.
+  - Example:
+    - "ksanders7070_MapObjectType": "ApproachControl"
+    - "ksanders7070_MapGroupId": "1"
+    - "ksanders7070_LineObjectId": "DTW"
+
+FOR SYMBOLS:
+
+- ???
+
+FOR TEXT:
+
+- If the user elects to have Custom Properties turned on, the script will insert a custom key/values into the properties section of the feature detailing the MapObjectType.
+
+- Regardless if the user elects to have custom properties turned on, the script will create a property key of "text" and assign it the value for the .xml tag SymbolId. Format: `"text": ["<SymbolId>"]`
+  - Example:
+    - "ksanders7070_MapObjectType": "WAYPOINT"
+    - "text": ["ALEEE"]
+
+## CUSTOM PROPERTIES FOR SYMBOLS/TEXT
+
 For testing and organizational needs, the script will offer the user the option to turn on "Custom_Properties" for line features. This feature is turned off (F) by default.
 
 If the user elects to turn the feature on (T), the script will insert a custom key/values into the properties section of the feature detailing the MapObjectType, MapGroupId, and LineObjectId.
 
-In order to avoid future confliction with other .geojson readers, the keys will be prefixed with the developer of this scripts GitHub name "ksanders7070"
 
-Example:
-
-- "ksanders7070_MapObjectType": "ApproachControl"
-- "ksanders7070_MapGroupId": "1"
-- "ksanders7070_LineObjectId": "DTW"
 
 ## EFFICIENT LINESTRING HANDLING
 

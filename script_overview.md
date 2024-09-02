@@ -2,7 +2,7 @@
 
 ## INPUT/OUTPUT
 
-The script that will take data from an .xml and make geojson files in a specific way.
+The script that will take data from a RW ERAM GeoMaps.xml and create geojson files in accordance with RFC-7946 format standards for use by the program CRC.
 The script will create .geojsons that are Linestrings (including multilinestrings), Symbols, and Text.
 Each geojson will contain only one of these types and appened `_Lines` `_Symbols` and `_Text` at the end of the .geojson name accordingly.
 
@@ -20,7 +20,7 @@ Example: **CENTER-CTR_MAP**
 
 In each folder that was made, create subdirectories "Filter_01", "Filter_02", etc... up to and including "Filter_20".
 Also create a folder labeled "Multi-Filter".  
-*Note: Filter numbers in the when creating directories should always be made with 2 digits but prefixing zeros should not be added to file name or other data later.*
+*Note: When creating directories, Filter numbers must always be made with 2 digits but prefixing zeros should not be added to file name or other data later.*
 
 ## LINES, SYMBOLS, TEXT
 
@@ -43,6 +43,22 @@ To know what filter directory to place the .geojson in, the script will need to 
 - For Text (GeoMapSymbol with GeoMapText)
   - First look for the FilterGroup in `GeoMapObjectType`-`GeoMapSymbol`-`GeoMapText`-`GeoTextFilters` but if it is not there, get it from `GeoMapObjectType`-`TextDefaultProperties`-`GeoTextFilters`.
     - It is important to look in this order because the data in `GeoMapObjectType`-`GeoMapSymbol`-`GeoMapText`-`GeoTextFilters` overrides `GeoMapObjectType`-`TextDefaultProperties`-`GeoTextFilters`.
+
+## COORDINATES
+
+Coordinates retrieved from the .xml will be in DMS format such as "37000000N" and need to be converted to decimal format for the .geojson.
+
+Coordinates may be found for the objects as follows:
+
+For Lines:
+
+- `GeoMapObjectType`-`GeoMapLine`-`StartLatitude`
+- `GeoMapObjectType`-`GeoMapLine`-`StartLongitude`
+
+For Symbols & Text:
+
+- `GeoMapObjectType`-`GeoMapSymbol`-`Latitude`
+- `GeoMapObjectType`-`GeoMapSymbol`-`Longitude`
 
 ## OUTPUT DIRECTORY AND FILE NAME
 
@@ -75,13 +91,15 @@ Examples:
 
 ## CUSTOM PROPERTIES
 
-For testing and organizational needs, the script will offer the user the option to turn on "Custom_Properties" for features. This feature is turned off (F) by default.
+Custom Properties will be information from the .xml that is not needed to make the geojson but may be helpful with testing and organization by the Facility Engineer (person that manages the .geojson files). This feature is turned off (F) by default.
 
-In order to avoid future confliction with other .geojson readers, the keys will be prefixed with the developer of this scripts GitHub name "ksanders7070".
+Not all tags and elements will carry over into the geojson; Below you will find information for exactly how this information is handled and when it is passed in to the .geojson.
+
+In order to avoid future confliction with other .geojson readers, the properties keys will be the tag name from the .xml but prefixed with "ksanders7070_".
 
 FOR LINES:
 
-- If the user elects to have Custom Properties turned on, the script will insert a custom key/values into the properties section of the feature detailing the MapObjectType, MapGroupId, and LineObjectId.
+- If the user elects to have Custom Properties turned on, the script will insert a custom key/values into the properties section of the feature detailing the .xml's MapObjectType, MapGroupId, and LineObjectId.
   - Example:
     - "ksanders7070_MapObjectType": "ApproachControl"
     - "ksanders7070_MapGroupId": "1"
@@ -89,24 +107,20 @@ FOR LINES:
 
 FOR SYMBOLS:
 
-- ???
+- If the user elects to have Custom Properties turned on, the script will insert a custom key/values into the properties section of the feature detailing the .xml's MapObjectType.
+  - Example:
+    - "ksanders7070_MapObjectType": "WAYPOINT"
 
 FOR TEXT:
 
-- If the user elects to have Custom Properties turned on, the script will insert a custom key/values into the properties section of the feature detailing the MapObjectType.
+- If the user elects to have Custom Properties turned on, the script will insert a custom key/values into the properties section of the feature detailing the .xml's MapObjectType.
 
-- Regardless if the user elects to have custom properties turned on, the script will create a property key of "text" and assign it the value for the .xml tag SymbolId. Format: `"text": ["<SymbolId>"]`
+- Regardless if the user elects to have custom properties turned on or not, the script will create a property key of "text" and assign it the value for the .xml's tag SymbolId. Format: `"text": ["<SymbolId>"]`
   - Example:
     - "ksanders7070_MapObjectType": "WAYPOINT"
     - "text": ["ALEEE"]
 
-## CUSTOM PROPERTIES FOR SYMBOLS/TEXT
-
-For testing and organizational needs, the script will offer the user the option to turn on "Custom_Properties" for line features. This feature is turned off (F) by default.
-
-If the user elects to turn the feature on (T), the script will insert a custom key/values into the properties section of the feature detailing the MapObjectType, MapGroupId, and LineObjectId.
-
-
+- Along with creating the text feature in the _Text.geojson,the script will also create a feature for this text element as a "Symbol" in the `_Symbols`.geojson file using the same FilterGroup value. (i.e., after creating the text feature, run the symbol feature aswell but add the same `"text": ["<SymbolId>"]` property in the symbols file.)
 
 ## EFFICIENT LINESTRING HANDLING
 
@@ -114,7 +128,7 @@ To save space and organization of the .geojson line files, we will combine MapOb
 
 For example, if MapObjectType=ApproachControl, MapGroupId=1, and the LineObjectId=BUF, then all LineObjectId elements that match that sequence of attributes will be grouped together in the same Feature.
 
-If the previous StartLatitude and StartLongitude are equal to the previous EndLatitude and EndLongitude, then just add the current EndLatitude and EndLongitude to the same linestring. When the previous StartLatitude and StartLongitude are not equal to the previous EndLatitude and EndLongitude, create a break in the multilinestring.
+If the current StartLatitude and StartLongitude is equal to the previous EndLatitude and EndLongitude, then just add the current EndLatitude and EndLongitude to the same linestring. When the current StartLatitude and StartLongitude are not equal to the previous EndLatitude and EndLongitude, create a break in the multilinestring.
 
 Example
 

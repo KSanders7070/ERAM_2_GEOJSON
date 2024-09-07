@@ -1,140 +1,74 @@
-GeoMapRecord
-├── GeomapId
-├── BCGMenuName
-├── FilterMenuName
-├── LabelLine1
-├── LabelLine2
-├── MinLatitude
-├── MaxLatitude
-├── MinLongitude
-├── MaxLongitude
-├── MinXSpherical
-├── MinYSpherical
-├── MinZSpherical
-├── MaxXSpherical
-├── MaxYSpherical
-├── MaxZSpherical
-├── GeoMapObjectType (multiple)
-│   ├── MapObjectType
-│   ├── MapGroupId
-│   ├── DefaultSymbolProperties (optional)
-│   │   ├── SymbolStyle
-│   │   ├── BCGGroup
-│   │   ├── Color
-│   │   ├── FontSize
-│   │   ├── GeoSymbolFilters (optional)
-│   │   │   ├── FilterGroup (multiple)
-│   │   │   └── FilterGroup
-│   │   └── GeoSymbolFilters
-│   ├── DefaultLineProperties (optional)
-│   │   ├── LineStyle
-│   │   ├── BCGGroup (optional)
-│   │   ├── Color
-│   │   ├── Thickness
-│   │   ├── GeoLineFilters (optional)
-│   │   │   ├── FilterGroup (multiple)
-│   │   │   └── FilterGroup
-│   │   └── GeoLineFilters
-│   ├── TextDefaultProperties (optional)
-│   │   ├── BCGGroup (optional)
-│   │   ├── Color
-│   │   ├── FontSize
-│   │   ├── Underline
-│   │   ├── DisplaySetting
-│   │   ├── XPixelOffset
-│   │   ├── YPixelOffset
-│   │   ├── GeoTextFilters (optional)
-│   │   │   ├── FilterGroup (multiple)
-│   │   │   └── FilterGroup
-│   │   └── GeoTextFilters
-│   ├── GeoMapSymbol (multiple, optional)
-│   │   ├── SymbolId
-│   │   ├── SymbolCode (optional)
-│   │   ├── SymbolStyle (optional)
-│   │   ├── BCGGroup (optional)
-│   │   ├── Color (optional)
-│   │   ├── FontSize (optional)
-│   │   ├── Latitude
-│   │   ├── Longitude
-│   │   ├── XSpherical
-│   │   ├── YSpherical
-│   │   ├── ZSpherical
-│   │   ├── GeoSymbolFilters (optional)
-│   │   │   ├── FilterGroup (multiple)
-│   │   │   └── FilterGroup
-│   │   ├── GeoMapText (optional)
-│   │   │   ├── BCGGroup (optional)
-│   │   │   ├── Color (optional)
-│   │   │   ├── FontSize (optional)
-│   │   │   ├── Underline (optional)
-│   │   │   ├── DisplaySetting (optional)
-│   │   │   ├── XPixelOffset (optional)
-│   │   │   ├── YPixelOffset (optional)
-│   │   │   ├── Latitude (optional)
-│   │   │   ├── Longitude (optional)
-│   │   │   ├── XSpherical (optional)
-│   │   │   ├── YSpherical (optional)
-│   │   │   ├── ZSpherical (optional)
-│   │   │   ├── GeoTextFilters (optional)
-│   │   │   │   ├── FilterGroup (multiple)
-│   │   │   │   └── FilterGroup
-│   │   │   ├── GeoTextStrings
-│   │   │   │   ├── TextLine (multiple)
-│   │   │   │   └── TextLine
-│   │   │   └── GeoTextStrings
-│   │   └── GeoMapText
-│   └── GeoMapLine (multiple, optional)
-│       ├── LineObjectId
-│       ├── LineStyle (optional)
-│       ├── BCGGroup (optional)
-│       ├── Color (optional)
-│       ├── Thickness (optional)
-│       ├── StartLatitude
-│       ├── StartLongitude
-│       ├── EndLatitude
-│       ├── EndLongitude
-│       ├── StartXSpherical
-│       ├── StartYSpherical
-│       ├── StartZSpherical
-│       ├── EndXSpherical
-│       ├── EndYSpherical
-│       ├── EndZSpherical
-│       ├── GeoLineFilters (optional)
-│       │   ├── FilterGroup (multiple)
-│       │   └── FilterGroup
-│       └── GeoLineFilters
-└── GeoMapSaa (multiple, optional)
-    ├── SaaID
-    ├── Owning_Facility
-    ├── GeoMapSaaAltitude
-    │   ├── FontSize (optional)
-    │   ├── DisplaySetting (optional)
-    ├── GeoMapSaaLabel
-    │   ├── SaaLabel
-    │   ├── Color (optional)
-    │   ├── FontSize (optional)
-    │   ├── Underline (optional)
-    │   ├── DisplaySetting (optional)
-    │   ├── Latitude
-    │   ├── Longitude
-    │   ├── XSpherical
-    │   ├── YSpherical
-    │   ├── ZSpherical
-    └── GeoMapSaaBoundary
-        ├── Color (optional)
-        ├── LineStyle (optional)
-        ├── Thickness (optional)
-        └── GeoSaaLinesSegments
-            └── GeoMapSaaLine (multiple)
-                ├── ModuleID
-                ├── Seq_num
-                ├── StartLatitude
-                ├── StartLongitude
-                ├── EndLatitude
-                ├── EndLongitude
-                ├── StartXSpherical
-                ├── StartYSpherical
-                ├── StartZSpherical
-                ├── EndXSpherical
-                ├── EndYSpherical
-                └── EndZSpherical
+
+Geomaps_Records
+├── GeoMapRecord
+│   ├── GeomapId
+│   ├── BCGMenuName
+│   ├── FilterMenuName
+│   ├── LabelLine1
+│   ├── LabelLine2
+│   ├── MinLatitude
+│   ├── MaxLatitude
+│   ├── MinLongitude
+│   ├── MaxLongitude
+│   ├── MinXSpherical
+│   ├── MinYSpherical
+│   ├── MinZSpherical
+│   ├── MaxXSpherical
+│   ├── MaxYSpherical
+│   ├── MaxZSpherical
+│   └── GeoMapObjectType
+│       ├── MapObjectType
+│       ├── MapGroupId
+│       ├── DefaultLineProperties
+│       │   ├── LineStyle
+│       │   ├── BCGGroup
+│       │   ├── Color
+│       │   ├── Thickness
+│       │   └── GeoLineFilters
+│       │       └── FilterGroup
+│       ├── DefaultSymbolProperties
+│       │   ├── SymbolStyle
+│       │   ├── BCGGroup
+│       │   ├── Color
+│       │   ├── FontSize
+│       │   └── GeoSymbolFilters
+│       │       └── FilterGroup
+│       ├── TextDefaultProperties
+│       │   ├── BCGGroup
+│       │   ├── Color
+│       │   ├── FontSize
+│       │   ├── Underline
+│       │   ├── DisplaySetting
+│       │   ├── XPixelOffset
+│       │   ├── YPixelOffset
+│       │   └── GeoTextFilters
+│       │       └── FilterGroup
+│       ├── GeoMapLine
+│       │   ├── LineObjectId
+│       │   ├── StartLatitude
+│       │   ├── StartLongitude
+│       │   ├── EndLatitude
+│       │   ├── EndLongitude
+│       │   ├── StartXSpherical
+│       │   ├── StartYSpherical
+│       │   ├── StartZSpherical
+│       │   ├── EndXSpherical
+│       │   ├── EndYSpherical
+│       │   ├── EndZSpherical
+│       │   └── GeoLineFilters
+│       │       └── FilterGroup
+│       └── GeoMapSymbol
+│           ├── SymbolId
+│           ├── FontSize
+│           ├── Latitude
+│           ├── Longitude
+│           ├── XSpherical
+│           ├── YSpherical
+│           ├── ZSpherical
+│           └── GeoSymbolFilters
+│               └── FilterGroup
+│           └── GeoMapText
+│               ├── GeoTextStrings
+│               └── GeoTextFilters
+│                   └── FilterGroup
+└── GeoMapSaa

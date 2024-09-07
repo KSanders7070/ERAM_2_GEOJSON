@@ -1,0 +1,95 @@
+# Tag/Values Use
+
+- `Geomaps_Records`
+  - Contains all GeoMapRecords.
+  - May contain multiple.
+  - `GeoMapRecord`
+    - All records for a GeoMap.
+    - May contain multiple.
+    - `GeomapId`
+      - (String) ID for the GeoMap
+      - Create a library for this "GeomapId" value.
+    - `BCGMenuName`
+      - Ignore.
+    - `FilterMenuName`
+      - Ignore.
+    - `LabelLine1`
+      - (String) Save this value to a variable "GeoMapLabelLine1" under this GeomapId library.
+    - `LabelLine2`
+      - (String) Save this value to a variable "GeoMapLabelLine2" under this GeomapId library.
+    - `MinLatitude`
+      - Ignore.
+    - `MaxLatitude`
+      - Ignore.
+    - `MinLongitude`
+      - Ignore.
+    - `MaxLongitude`
+      - Ignore.
+    - `MinXSpherical`
+      - Ignore.
+    - `MinYSpherical`
+      - Ignore.
+    - `MinZSpherical`
+      - Ignore.
+    - `MaxXSpherical`
+      - Ignore.
+    - `MaxYSpherical`
+      - Ignore.
+    - `MaxZSpherical`
+      - Ignore.
+    - `GeoMapObjectType`
+      - `MapObjectType`
+      - `MapGroupId`
+      - `DefaultLineProperties`
+        - `LineStyle`
+        - `BCGGroup`
+        - `Color`
+        - `Thickness`
+        - `GeoLineFilters`
+          - `FilterGroup`
+      - `DefaultSymbolProperties`
+        - `SymbolStyle`
+        - `BCGGroup`
+        - `Color`
+        - `FontSize`
+        - `GeoSymbolFilters`
+          - `FilterGroup`
+      - `TextDefaultProperties`
+        - `BCGGroup`
+        - `Color`
+        - `FontSize`
+        - `Underline`
+        - `DisplaySetting`
+        - `XPixelOffset`
+        - `YPixelOffset`
+        - `GeoTextFilters`
+          - `FilterGroup`
+      - `GeoMapLine`
+        - `LineObjectId`
+        - `StartLatitude`
+        - `StartLongitude`
+        - `EndLatitude`
+        - `EndLongitude`
+        - `StartXSpherical`
+        - `StartYSpherical`
+        - `StartZSpherical`
+        - `EndXSpherical`
+        - `EndYSpherical`
+        - `EndZSpherical`
+        - `GeoLineFilters`
+          - `FilterGroup`
+      - `GeoMapSymbol`
+        - `SymbolId`
+        - `FontSize`
+        - `Latitude`
+        - `Longitude`
+        - `XSpherical`
+        - `YSpherical`
+        - `ZSpherical`
+        - `GeoSymbolFilters`
+          - `FilterGroup`
+        - `GeoMapText`
+          - `GeoTextStrings`
+          - `GeoTextFilters`
+            - `FilterGroup`
+      - `GeoMapSaa`

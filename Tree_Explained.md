@@ -38,22 +38,121 @@
     - `MaxZSpherical`
       - Ignore.
     - `GeoMapObjectType`
+      - Contains all Objects attached to this GeomapId.
+      - May contain multiple.
       - `MapObjectType`
+        - (String) Type of object with possible values of:
+          - VOR
+          - TACAN
+          - WAYPOINT
+          - NDB
+          - DME
+          - AIRPORT
+          - EmergencyAirport
+          - SatelliteAirport
+          - MilitaryRoutes
+          - AIRWAY
+          - STAR
+          - ADAR
+          - ADR
+          - APR
+          - AAR
+          - DP
+          - SAA
+          - ARTS
+          - FAV
+          - SECTOR
+          - ApproachControl
+          - ARTCC
+          - SupplementalLine
+          - SupplementalSymbol
+          - AAV
+          - TAV
+          - TAVAOI
       - `MapGroupId`
+        - (integer) Group Number assigned to the MapObjectType.
+        - For lines, this will assist in knowing which objects to put together in the same Geojson Feature.
       - `DefaultLineProperties`
+        - List of properties that are assigned to the following GeoMapLine objects that do not have overriding properties of their own.
+        - We only care about the FilterGroup.
+        - Optional.
         - `LineStyle`
+          - Ignore.
+          - Optional.
         - `BCGGroup`
+          - Ignore.
+          - Optional.
         - `Color`
+          - Ignore.
+          - Optional.
         - `Thickness`
+          - Ignore.
+          - Optional.
         - `GeoLineFilters`
+          - Single or group of filters to be assigned to the line.
+          - May be multiple.
+          - Optional.
           - `FilterGroup`
+            - (Integer) The actual value to be assigned.
+            - May be multiple.
       - `DefaultSymbolProperties`
+        - List of properties that are assigned to the following GeoMapSymbol objects that do not have overriding properties of their own.
+        - We only care about SymbolStyle and FilterGroup.
+        - Optional.
         - `SymbolStyle`
+          - (String) Details the sytle to be used for this Symbol.
+          - May include:
+            - VOR
+              - Convert to read "vor"
+            - TACAN
+              - Convert to read "tacan"
+            - OtherWaypoints
+              - Convert to read "otherWaypoints"
+            - NDB
+              - Convert to read "ndb"
+            - DME
+              - Convert to read "dme"
+            - Airport
+              - Convert to read "airport"
+            - EmergencyAirport
+              - Convert to read "emergencyAirport"
+            - SatelliteAirport
+              - Convert to read "satelliteAirport"
+            - Obstruction1
+              - Convert to read "obstruction1"
+            - Obstruction2
+              - Convert to read "obstruction2"
+            - Heliport
+              - Convert to read "heliport"
+            - Nuclear
+              - Convert to read "solinucleard"
+            - Radar
+              - Convert to read "radar"
+            - IAF
+              - Convert to read "iaf"
+            - RNAVOnlyWaypoint
+              - Convert to read "rnavOnlyWaypoint"
+            - RNAV
+              - Convert to read "rnav"
+            - AirwayIntersections
+              - Convert to read "airwayIntersections"
+          - Optional.
         - `BCGGroup`
+          - Ignore.
+          - Optional.
         - `Color`
+          - Ignore.
+          - Optional.
         - `FontSize`
+          - Ignore.
+          - Optional.
         - `GeoSymbolFilters`
+          - Single or group of filters to be assigned to the symbol.
+          - May be multiple.
+          - Optional.
           - `FilterGroup`
+            - (Integer) The actual value to be assigned.
+            - May be multiple.
       - `TextDefaultProperties`
         - `BCGGroup`
         - `Color`

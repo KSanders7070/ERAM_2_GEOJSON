@@ -21,9 +21,9 @@ Each geojson file may contain multiple features but those features will all be o
   - `GeoMapRecord`
     - All records for a GeoMap.
     - May contain multiple.
+    - This value will be used to create the name of the folder where the children objects are output.
     - `GeomapId`
-      - (String) ID for the GeoMap
-      - Create a library for this "GeomapId" value.
+      - (String) ID for the GeoMap.
     - `BCGMenuName`
       - Ignore.
     - `FilterMenuName`
@@ -89,7 +89,7 @@ Each geojson file may contain multiple features but those features will all be o
         - For lines, this will assist in knowing which objects to put together in the same Geojson Feature.
       - `DefaultLineProperties`
         - List of properties that are assigned to the following GeoMapLine objects that do not have overriding properties of their own.
-        - We only care about the FilterGroup.
+        - FilterGroup is of importance.
         - Optional.
         - `LineStyle`
           - Ignore.
@@ -112,10 +112,10 @@ Each geojson file may contain multiple features but those features will all be o
             - May be multiple.
       - `DefaultSymbolProperties`
         - List of properties that are assigned to the following GeoMapSymbol objects that do not have overriding properties of their own.
-        - We only care about SymbolStyle and FilterGroup.
+        - SymbolStyle and FilterGroup is of importance.
         - Optional.
         - `SymbolStyle`
-          - (String) Details the sytle to be used for this Symbol.
+          - (String) Details the Style to be used for this Symbol.
           - May include:
             - VOR
               - Convert to read "vor"
@@ -169,15 +169,37 @@ Each geojson file may contain multiple features but those features will all be o
             - (Integer) The actual value to be assigned.
             - May be multiple.
       - `TextDefaultProperties`
+        - List of properties that are assigned to the following GeoMapSymbol objects that do not have overriding properties of their own.
+        - SymbolStyle and FilterGroup is of importance.
+        - Optional.
         - `BCGGroup`
+          - Ignore.
+          - Optional.
         - `Color`
+          - Ignore.
+          - Optional.
         - `FontSize`
+          - Ignore.
+          - Optional.
         - `Underline`
+          - Ignore.
+          - Optional.
         - `DisplaySetting`
+          - Ignore.
+          - Optional.
         - `XPixelOffset`
+          - Ignore.
+          - Optional.
         - `YPixelOffset`
+          - Ignore.
+          - Optional.
         - `GeoTextFilters`
+          - Single or group of filters to be assigned to the text.
+          - May be multiple.
+          - Optional.
           - `FilterGroup`
+            - (Integer) The actual value to be assigned.
+            - May be multiple.
       - `GeoMapLine`
         - `LineObjectId`
         - `StartLatitude`

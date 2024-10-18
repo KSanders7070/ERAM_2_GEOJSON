@@ -201,34 +201,73 @@ Each geojson file may contain multiple features but those features will all be o
             - (Integer) The actual value to be assigned.
             - May be multiple.
       - `GeoMapLine`
+        - Line data for this object.
         - `LineObjectId`
+          - This value will later be used to help group other like-coordinates into the same feature and possibly the custom properties section if the user elects to have them injected into the features.
         - `StartLatitude`
+          - The Start Latitude for this GeoMapLine>LineObjectId
         - `StartLongitude`
+          - The Start Longitude for this GeoMapLine>LineObjectId
         - `EndLatitude`
+          - The End Latitude for this GeoMapLine>LineObjectId
         - `EndLongitude`
+          - The End Longitude for this GeoMapLine>LineObjectId
         - `StartXSpherical`
+          - Ignore.
         - `StartYSpherical`
+          - Ignore.
         - `StartZSpherical`
+          - Ignore.
         - `EndXSpherical`
+          - Ignore.
         - `EndYSpherical`
+          - Ignore.
         - `EndZSpherical`
+          - Ignore.
         - `GeoLineFilters`
+          - Single or group of filters to be assigned to the line.
+          - May be multiple.
+          - Optional.
           - `FilterGroup`
+            - (Integer) The actual value to be assigned.
+            - May be multiple.
       - `GeoMapSymbol`
+        - Symbol data for this object.
         - `SymbolId`
+          - Ignore.
         - `FontSize`
+          - Ignore.
         - `Latitude`
+          - Latitude for this symbol.
         - `Longitude`
+          - Longitude for this symbol.
         - `XSpherical`
+          - Ignore.
         - `YSpherical`
+          - Ignore.
         - `ZSpherical`
+          - Ignore.
         - `GeoSymbolFilters`
+          - Single or group of filters to be assigned to the symbol.
+          - May be multiple.
+          - Optional.
           - `FilterGroup`
+            - (Integer) The actual value to be assigned.
+            - May be multiple.
         - `GeoMapText`
+          - Text data for this symbol object.
+          - Note that the GeoMapText section would have been made its' own object outside of the GeoMapSymbol object if I had made the .xml but it is within the GeoMapSymbol object, unfortunately. The coordinates for the GeoMapText is found in the GeoMapSymbol data.
           - `GeoTextStrings`
+            - The string of text associated with this GeoMapText object.
           - `GeoTextFilters`
+            - Single or group of filters to be assigned to the text.
+            - May be multiple.
+            - Optional.
             - `FilterGroup`
+              - (Integer) The actual value to be assigned.
+              - May be multiple.
       - `GeoMapSaa`
+        - Ignore.
 
 ## OUTPUT DIRECTORY SETUP
 
